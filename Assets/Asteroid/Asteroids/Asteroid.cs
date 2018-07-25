@@ -55,22 +55,5 @@ namespace AsteroidGame.Asteroids
             }
             Destroy(this.gameObject);
         }
-
-
-        void OnBecameInvisible()
-        {
-            //TODO fix: this behaviour is different from original game  
-            transform.position = transform.position * -1;
-
-            //this should work but seems to be buggy
-            /*if (Mathf.Abs(transform.position.x) >= cameraVerticalSize)
-            {
-                transform.position = Vector3.Scale(transform.position, new Vector3(-1, 1, 1));
-            }
-            else
-            {
-                transform.position = Vector3.Scale(transform.position, new Vector3(1, -1, 1));
-            } */
-        }
     }
 }

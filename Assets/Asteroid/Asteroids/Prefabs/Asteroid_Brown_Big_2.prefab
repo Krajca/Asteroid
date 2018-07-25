@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 58411261612726484}
   - component: {fileID: 50433152558823272}
   - component: {fileID: 114128435331104236}
+  - component: {fileID: 114541083065635338}
   m_Layer: 10
   m_Name: Asteroid_Brown_Big_2
   m_TagString: Untagged
@@ -103,6 +104,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06a8d8faa691e4c48a6b34ad2271f7a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114541083065635338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1913984178682816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38564800cfcf8a54590787d4ab0092e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212894485758490754

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 58651150889725252}
   - component: {fileID: 50310155047673604}
   - component: {fileID: 114211320275013328}
+  - component: {fileID: 114765357467918198}
   m_Layer: 10
   m_Name: Asteroid_Gray_Big_2
   m_TagString: Untagged
@@ -103,6 +104,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06a8d8faa691e4c48a6b34ad2271f7a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114765357467918198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766915292800766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38564800cfcf8a54590787d4ab0092e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212692951907463538

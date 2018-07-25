@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 58205347555557092}
   - component: {fileID: 50587396207515076}
   - component: {fileID: 114466463593860084}
+  - component: {fileID: 114178928485682190}
   m_Layer: 10
   m_Name: Asteroid_Brown_Small_1
   m_TagString: Untagged
@@ -78,6 +79,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &114178928485682190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1198375133249520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38564800cfcf8a54590787d4ab0092e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114466463593860084
 MonoBehaviour:
   m_ObjectHideFlags: 1

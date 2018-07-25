@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 58881579398890248}
   - component: {fileID: 50469004587689664}
   - component: {fileID: 114567995721166164}
+  - component: {fileID: 114261190365306502}
   m_Layer: 10
   m_Name: Asteroid_Brown_Medium_1
   m_TagString: Untagged
@@ -78,6 +79,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.215
+--- !u!114 &114261190365306502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1559283866384580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38564800cfcf8a54590787d4ab0092e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114567995721166164
 MonoBehaviour:
   m_ObjectHideFlags: 1

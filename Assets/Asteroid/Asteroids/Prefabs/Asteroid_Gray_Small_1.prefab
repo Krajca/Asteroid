@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 58691748732571232}
   - component: {fileID: 50166061714181980}
   - component: {fileID: 114732834983731854}
+  - component: {fileID: 114493997063733298}
   m_Layer: 10
   m_Name: Asteroid_Gray_Small_1
   m_TagString: Untagged
@@ -78,6 +79,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.14
+--- !u!114 &114493997063733298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1138635267311658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38564800cfcf8a54590787d4ab0092e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114732834983731854
 MonoBehaviour:
   m_ObjectHideFlags: 1
