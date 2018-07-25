@@ -8,7 +8,8 @@ namespace AsteroidGame
 {
     public class GameLoop : MonoBehaviour
     {
-        public AsteroidSpawner asteroidSpawner;
+        [SerializeField]
+        AsteroidSpawner asteroidSpawner;
 
 
         /// <summary>

@@ -10,8 +10,7 @@ namespace AsteroidGame.UI
 
         void Start()
         {
-            //TODO change that to file saving with settings
-            hiScore.text = PlayerPrefs.GetInt("hiScore", 0).ToString();
+            hiScore.text = ScoreManager.instance.HiScore.ToString();
         }
 
         public void Play()
