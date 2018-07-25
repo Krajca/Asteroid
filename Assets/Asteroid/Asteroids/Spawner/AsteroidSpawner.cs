@@ -40,6 +40,16 @@ namespace AsteroidGame.Asteroids
 
         public void SpawnSmallerAsteroid(Asteroid bigAsteroid)
         {
+            if (bigAsteroid.Size != AsteroidSize.small)
+            {
+                InstantiateSmallerAsteroid(bigAsteroid);
+                InstantiateSmallerAsteroid(bigAsteroid);
+            }
+            ScoreManager.instance.AddScore(spawnerData.PointsForAsteroids[(int)bigAsteroid.Size]);
+        }
+
+        void InstantiateSmallerAsteroid(Asteroid bigAsteroid)
+        {
             //take smaller sized asteroid with bigger asteroid type
             GameObject prefab;
             if (bigAsteroid.Size == AsteroidSize.big)

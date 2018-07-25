@@ -48,11 +48,7 @@ namespace AsteroidGame.Asteroids
 
         private void OnCollisionEnter2D()
         {
-            if (Size != AsteroidSize.small)
-            {
-                asteroidSpawner.SpawnSmallerAsteroid(this);
-                asteroidSpawner.SpawnSmallerAsteroid(this);
-            }
+            asteroidSpawner.SpawnSmallerAsteroid(this);
             Destroy(this.gameObject);
         }
     }
