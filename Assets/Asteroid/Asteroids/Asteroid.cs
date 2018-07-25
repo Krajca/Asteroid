@@ -23,11 +23,7 @@ public class Asteroid : MonoBehaviour
     float speed = 1;
     AsteroidSpawner asteroidSpawner;
 
-    void FixedUpdate()
-    {
-        transform.Translate(Heading * speed * Time.fixedDeltaTime, Space.World);
-        transform.Rotate(Vector3.forward, Mathf.Abs(Random.value - 0.5f) * 10 * Time.fixedDeltaTime);
-    }
+        Rigidbody2D rb;
 
     public void Initialize(Vector3 position, float speed, Vector2 heading, AsteroidSize size, int type, AsteroidSpawner asteroidSpawner)
     {
@@ -45,10 +41,16 @@ public class Asteroid : MonoBehaviour
         {
             asteroidSpawner.SpawnSmallerAsteroid(this);
             asteroidSpawner.SpawnSmallerAsteroid(this);
+            rb = GetComponent<Rigidbody2D>();
         }
         Destroy(this.gameObject);
     }
 
+        private void OnEnable()
+        {
+            rb.velocity = Heading * speed;
+            rb.angularVelocity = speed * (Random.value-0.5f) * 20;
+        }
 
     void OnBecameInvisible()
     {
