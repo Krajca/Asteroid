@@ -29,7 +29,7 @@ public class Asteroid : MonoBehaviour
         transform.Rotate(Vector3.forward, Mathf.Abs(Random.value - 0.5f) * 10 * Time.fixedDeltaTime);
     }
 
-    public void Initialize(Vector3 position, int speed, Vector2 heading, AsteroidSize size, int type, AsteroidSpawner asteroidSpawner)
+    public void Initialize(Vector3 position, float speed, Vector2 heading, AsteroidSize size, int type, AsteroidSpawner asteroidSpawner)
     {
         transform.position = position;
         Heading = heading;
