@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b351e1fdd86f9314ca024f345cb51818, type: 3}
+  m_Name: GreyAsteroids
+  m_EditorClassIdentifier: 
+  bigAsteroidPrefabs:
+  - {fileID: 1766915292800766, guid: 1d0f3a0f93ed3fd40889b085d7ab5b04, type: 2}
+  mediumAsteroidPrefabs:
+  - {fileID: 1699693539977950, guid: 7b675eb5a453dda4da25b8e200af11a2, type: 2}
+  smallAsteroidPrefabs:
+  - {fileID: 1138635267311658, guid: 1a98099db2419e340896d24f6459fdcf, type: 2}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b351e1fdd86f9314ca024f345cb51818, type: 3}
+  m_Name: BrownAsteroids
+  m_EditorClassIdentifier: 
+  bigAsteroidPrefabs:
+  - {fileID: 1913984178682816, guid: e59169003278e8148832aaab5b7cecf2, type: 2}
+  mediumAsteroidPrefabs:
+  - {fileID: 1559283866384580, guid: f1eed2cf0cbb0cf479df60f8396baee2, type: 2}
+  smallAsteroidPrefabs:
+  - {fileID: 1198375133249520, guid: 17db245f1375cd7459aa7d75e69703c1, type: 2}

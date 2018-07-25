@@ -4,39 +4,67 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public AsteroidSize size
+    public AsteroidSize Size
     {
         get;
         protected set;
     }
-  
+    public int Type
+    {
+        get;
+        protected set;
+    }
+    public Vector2 Heading
+    {
+        get;
+        protected set;
+    }
+
     float speed = 1;
-    Vector2 heading = Vector2.up;
+    AsteroidSpawner asteroidSpawner;
 
     void FixedUpdate()
     {
-        transform.Translate(heading * speed * Time.fixedDeltaTime);
-        //TODO / IDEA add rotation for better visual effect 
+        transform.Translate(Heading * speed * Time.fixedDeltaTime, Space.World);
+        transform.Rotate(Vector3.forward, Mathf.Abs(Random.value - 0.5f) * 10 * Time.fixedDeltaTime);
     }
 
-    public void Initialize(Vector3 position, int speed, Vector2 heading, AsteroidSize size)
+    public void Initialize(Vector3 position, int speed, Vector2 heading, AsteroidSize size, int type, AsteroidSpawner asteroidSpawner)
     {
-        this.transform.position = position;
+        transform.position = position;
+        Heading = heading;
+        Size = size;
+        Type = type;
         this.speed = speed;
-        this.heading = heading;
-        this.size = size;
+        this.asteroidSpawner = asteroidSpawner;
     }
 
-    public void Deactivate()
+    private void OnCollisionEnter2D()
     {
-        gameObject.SetActive(false);
+        if (Size != AsteroidSize.small)
+        {
+            asteroidSpawner.SpawnSmallerAsteroid(this);
+            asteroidSpawner.SpawnSmallerAsteroid(this);
+        }
+        Destroy(this.gameObject);
     }
+
 
     void OnBecameInvisible()
     {
-        transform.position = (Vector2)transform.position * - 1;
+        //TODO fix: this behaviour is different from original game  
+        transform.position = transform.position * -1;
+
+        //this should work but seems to be buggy
+        /*if (Mathf.Abs(transform.position.x) >= cameraVerticalSize)
+        {
+            transform.position = Vector3.Scale(transform.position, new Vector3(-1, 1, 1));
+        }
+        else
+        {
+            transform.position = Vector3.Scale(transform.position, new Vector3(1, -1, 1));
+        } */
     }
-    
 }
 
 public enum AsteroidSize
