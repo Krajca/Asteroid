@@ -1,50 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+namespace AsteroidGame.Asteroids
 {
-    public AsteroidSize Size
+    public class Asteroid : MonoBehaviour
     {
-        get;
-        protected set;
-    }
-    public int Type
-    {
-        get;
-        protected set;
-    }
-    public Vector2 Heading
-    {
-        get;
-        protected set;
-    }
+        public AsteroidSize Size
+        {
+            get;
+            protected set;
+        }
+        public int Type
+        {
+            get;
+            protected set;
+        }
+        public Vector2 Heading
+        {
+            get;
+            protected set;
+        }
 
-    float speed = 1;
-    AsteroidSpawner asteroidSpawner;
+        float speed;
+        AsteroidSpawner asteroidSpawner;
 
         Rigidbody2D rb;
 
-    public void Initialize(Vector3 position, float speed, Vector2 heading, AsteroidSize size, int type, AsteroidSpawner asteroidSpawner)
-    {
-        transform.position = position;
-        Heading = heading;
-        Size = size;
-        Type = type;
-        this.speed = speed;
-        this.asteroidSpawner = asteroidSpawner;
-    }
-
-    private void OnCollisionEnter2D()
-    {
-        if (Size != AsteroidSize.small)
+        private void Awake()
         {
-            asteroidSpawner.SpawnSmallerAsteroid(this);
-            asteroidSpawner.SpawnSmallerAsteroid(this);
             rb = GetComponent<Rigidbody2D>();
         }
-        Destroy(this.gameObject);
-    }
 
         private void OnEnable()
         {
@@ -52,26 +36,41 @@ public class Asteroid : MonoBehaviour
             rb.angularVelocity = speed * (Random.value-0.5f) * 20;
         }
 
-    void OnBecameInvisible()
-    {
-        //TODO fix: this behaviour is different from original game  
-        transform.position = transform.position * -1;
-
-        //this should work but seems to be buggy
-        /*if (Mathf.Abs(transform.position.x) >= cameraVerticalSize)
+        public void Initialize(Vector3 position, float speed, Vector2 heading, AsteroidSize size, int type, AsteroidSpawner asteroidSpawner)
         {
-            transform.position = Vector3.Scale(transform.position, new Vector3(-1, 1, 1));
+            transform.position = position;
+            Heading = heading;
+            Size = size;
+            Type = type;
+            this.speed = speed;
+            this.asteroidSpawner = asteroidSpawner;
         }
-        else
-        {
-            transform.position = Vector3.Scale(transform.position, new Vector3(1, -1, 1));
-        } */
-    }
-}
 
-public enum AsteroidSize
-{
-    small,
-    medium,
-    big
+        private void OnCollisionEnter2D()
+        {
+            if (Size != AsteroidSize.small)
+            {
+                asteroidSpawner.SpawnSmallerAsteroid(this);
+                asteroidSpawner.SpawnSmallerAsteroid(this);
+            }
+            Destroy(this.gameObject);
+        }
+
+
+        void OnBecameInvisible()
+        {
+            //TODO fix: this behaviour is different from original game  
+            transform.position = transform.position * -1;
+
+            //this should work but seems to be buggy
+            /*if (Mathf.Abs(transform.position.x) >= cameraVerticalSize)
+            {
+                transform.position = Vector3.Scale(transform.position, new Vector3(-1, 1, 1));
+            }
+            else
+            {
+                transform.position = Vector3.Scale(transform.position, new Vector3(1, -1, 1));
+            } */
+        }
+    }
 }

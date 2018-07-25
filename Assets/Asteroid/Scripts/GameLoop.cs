@@ -2,31 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameLoop : MonoBehaviour
+using AsteroidGame.Asteroids;
+
+namespace AsteroidGame
 {
-    public AsteroidSpawner asteroidSpawner;
-
-    
-    /// <summary>
-    /// Time to wait at beginning of the game
-    /// </summary>
-    float beginWaitTime = 1f;
-
-
-    void Start()
+    public class GameLoop : MonoBehaviour
     {
-        Invoke("StartGame", beginWaitTime);
-    }
+        public AsteroidSpawner asteroidSpawner;
 
 
-    void Update()
-    {
+        /// <summary>
+        /// Time to wait at beginning of the game
+        /// </summary>
+        float beginWaitTime = 1f;
 
-    }
 
-    public void StartGame()
-    {
+        void Start()
+        {
+            Invoke("StartGame", beginWaitTime);
+        }
 
-        asteroidSpawner.SpawnNewBig(3);
+
+        void Update()
+        {
+
+        }
+
+        public void StartGame()
+        {
+
+            asteroidSpawner.SpawnBigAsteroid(3);
+        }
     }
 }

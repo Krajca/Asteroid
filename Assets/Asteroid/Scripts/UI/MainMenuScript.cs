@@ -1,31 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuScript : MonoBehaviour
+namespace AsteroidGame.UI
 {
-    public Text hiScore;
-
-    void Start()
+    public class MainMenuScript : MonoBehaviour
     {
-        //TODO change that to file saving with settings
-        hiScore.text = PlayerPrefs.GetInt("hiScore", 0).ToString();
-    }
+        public Text hiScore;
 
-    public void Play()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
+        void Start()
+        {
+            //TODO change that to file saving with settings
+            hiScore.text = PlayerPrefs.GetInt("hiScore", 0).ToString();
+        }
 
-    public void Settings()
-    {
-        SceneManager.LoadScene("Settings");
-    }
+        public void Play()
+        {
+            SceneManager.LoadScene("GameScene");
+        }
 
-    public void Exit()
-    {
-        Application.Quit();
+        public void Settings()
+        {
+            SceneManager.LoadScene("Settings");
+        }
+
+        public void Exit()
+        {
+            Application.Quit();
+        }
     }
 }
