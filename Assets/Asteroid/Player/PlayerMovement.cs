@@ -5,19 +5,16 @@ namespace AsteroidGame.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        public PlayerData playerData;
+        [SerializeField]
+        PlayerData playerData;
 
         [SerializeField]
         GameObject ThrustFX;
-        [SerializeField]
-        GameObject TurnLeftFX;
-        [SerializeField]
-        GameObject TurnRightFX;
 
         Rigidbody2D rb;
 
         float angle;
-
+    
         bool accelerating;
 
         private void Awake()

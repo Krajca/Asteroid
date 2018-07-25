@@ -9,9 +9,12 @@ namespace AsteroidGame.Input
     public class PCInput : MonoBehaviour
     {
         PlayerMovement pm;
+        PlayerShooting ps;
+
         private void Awake()
         {
             pm = FindObjectOfType<PlayerMovement>();
+            ps = FindObjectOfType<PlayerShooting>();
         }
 
         void Start()
@@ -33,9 +36,9 @@ namespace AsteroidGame.Input
             {
                 pm.Turn(true);
             }
-            if (UnityEngine.Input.GetKey(KeyCode.Space))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
             {
-
+                ps.Shoot();
             }
         }
     }

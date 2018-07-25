@@ -1449,25 +1449,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114945005215583662, guid: f50aa01268e27794ba3bc1e211768d07,
-        type: 2}
-      propertyPath: TurnLeftFX
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114945005215583662, guid: f50aa01268e27794ba3bc1e211768d07,
-        type: 2}
-      propertyPath: TurnRightFX
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 212251752171675136, guid: f50aa01268e27794ba3bc1e211768d07,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: bc8465d44f853004682c8512d7077b43,
-        type: 3}
-    - target: {fileID: 1685826651039512, guid: f50aa01268e27794ba3bc1e211768d07, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 4026619308769900, guid: f50aa01268e27794ba3bc1e211768d07, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f50aa01268e27794ba3bc1e211768d07, type: 2}
