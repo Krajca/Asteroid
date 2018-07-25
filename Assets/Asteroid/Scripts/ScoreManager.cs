@@ -18,8 +18,9 @@ public class ScoreManager : MonoBehaviour
         protected set;
     }
 
-    string hiScore = "hiScore";
-    
+    string hiScoreID = "hiScore";
+    string currentScoreID = "currentScore";
+
     void Awake()
     {
         if (instance == null)
@@ -29,13 +30,24 @@ public class ScoreManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        HiScore = PlayerPrefs.GetInt(hiScore, 0);
-        Score = 0;
+        HiScore = PlayerPrefs.GetInt(hiScoreID, 0);
+        Score = PlayerPrefs.GetInt(currentScoreID, 0);
     }
     
     public void AddScore(int score)
     {
         Score += score;
+    }
+
+    public void ClearScore()
+    {
+        Score = 0;
+        PlayerPrefs.DeleteKey(currentScoreID);
+    }
+
+    public void SaveCurrentScore()
+    {
+        PlayerPrefs.SetInt(currentScoreID, Score);
     }
 
     public bool SaveIfNewHiScore()
@@ -45,10 +57,11 @@ public class ScoreManager : MonoBehaviour
         if (Score > HiScore)
         {
             HiScore = Score;
-            PlayerPrefs.SetInt(hiScore, HiScore);
+            PlayerPrefs.SetInt(hiScoreID, HiScore);
             isNewHiScore = true;
         }
 
+        ClearScore();
         return isNewHiScore;
     }
 }
