@@ -7,7 +7,7 @@ namespace AsteroidGame.Player
     [CreateAssetMenu(fileName = "PlayerData", menuName = "AsteroidData/PlayerData")]
     public class PlayerData : ScriptableObject
     {
-        public float TurnSpeed;
-        public float Acceleration;
+        public float ShipTurnSpeed;
+        public float ShipAcceleration;
     }
 }

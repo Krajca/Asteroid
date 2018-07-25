@@ -24,7 +24,7 @@ namespace AsteroidGame.Player
 
         public void Turn(bool right)
         {
-            angle += (right ? -1 : 1) * playerData.TurnSpeed;
+            angle += (right ? -1 : 1) * playerData.ShipTurnSpeed;
             rb.MoveRotation(angle);
         }
 
@@ -33,7 +33,7 @@ namespace AsteroidGame.Player
             accelerating = true;
 
             Vector2 dir = (Vector2)(Quaternion.Euler(0, 0, angle) * Vector2.up);
-            rb.AddForce(dir * playerData.Acceleration, ForceMode2D.Force);
+            rb.AddForce(dir * playerData.ShipAcceleration, ForceMode2D.Force);
         }
 
         public void Update()

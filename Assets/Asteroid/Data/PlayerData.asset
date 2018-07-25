@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4166fb1b28fe7df4e914b59e4f973c98, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  TurnSpeed: 4
-  Acceleration: 1
+  ShipTurnSpeed: 4
+  ShipAcceleration: 1
