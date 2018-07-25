@@ -42,9 +42,18 @@ public class AsteroidSpawner : MonoBehaviour
 
     public void SpawnSmallerAsteroid(Asteroid bigAsteroid)
     {
-        //take medium sized asteroid with big asteroid type
-        GameObject prefab = spawnerData.AsteroidTypes[bigAsteroid.Type]
-            .mediumAsteroidPrefabs[Random.Range(0, spawnerData.AsteroidTypes[bigAsteroid.Type].mediumAsteroidPrefabs.Length)];
+        //take smaller sized asteroid with bigger asteroid type
+        GameObject prefab;
+        if (bigAsteroid.Size == AsteroidSize.big)
+        {
+            prefab = spawnerData.AsteroidTypes[bigAsteroid.Type]
+                .mediumAsteroidPrefabs[Random.Range(0, spawnerData.AsteroidTypes[bigAsteroid.Type].mediumAsteroidPrefabs.Length)];
+        }
+        else
+        {
+            prefab = spawnerData.AsteroidTypes[bigAsteroid.Type]
+                .smallAsteroidPrefabs[Random.Range(0, spawnerData.AsteroidTypes[bigAsteroid.Type].smallAsteroidPrefabs.Length)];
+        }
 
         //Instantiate and initialize
         GameObject obj = Instantiate(prefab);
