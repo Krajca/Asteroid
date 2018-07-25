@@ -7,12 +7,9 @@ using UnityEngine;
 //TODO Consider to add pooling for asteroids -- need more time for size/type differences
 public class AsteroidSpawner : MonoBehaviour
 { 
-    float positionBound = 2f;
-    float headingBound = 2f;
+    public AsteroidSpawnerData spawnerData;
 
     float maxCamBound;
-
-    public AsteroidSpawnerData spawnerData;
 
     void Start()
     {
@@ -34,10 +31,10 @@ public class AsteroidSpawner : MonoBehaviour
 
             Asteroid asteroid = obj.GetComponent<Asteroid>();
 
-            Vector2 rndPos = Random.insideUnitCircle.normalized * (maxCamBound + positionBound);
-            Vector2 rndHeading = (Random.insideUnitCircle * headingBound) - rndPos;
+            Vector2 rndPos = Random.insideUnitCircle.normalized * (maxCamBound + spawnerData.SpawnPositionOffsetBound);
+            Vector2 rndHeading = (Random.insideUnitCircle * spawnerData.AccuracyOfAsteroids) - rndPos;
 
-            asteroid.Initialize(rndPos, 2, rndHeading.normalized, AsteroidSize.big, 1, this);
+            asteroid.Initialize(rndPos, spawnerData.AsteroidSpeed, rndHeading.normalized, AsteroidSize.big, 1, this);
 
             obj.SetActive(true);
         }
@@ -58,7 +55,7 @@ public class AsteroidSpawner : MonoBehaviour
         Vector2 rndPos = bigAsteroid.transform.position;
         Vector2 rndHeading = Random.insideUnitCircle.normalized;
 
-        asteroid.Initialize(rndPos, 2, rndHeading, bigAsteroid.Size+1, 1, this);
+        asteroid.Initialize(rndPos, spawnerData.AsteroidSpeed, rndHeading, bigAsteroid.Size-1, 1, this);
 
         obj.SetActive(true);
     }
