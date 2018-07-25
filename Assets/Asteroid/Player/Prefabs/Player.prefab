@@ -56,9 +56,10 @@ GameObject:
   - component: {fileID: 114945005215583662}
   - component: {fileID: 114898581499774490}
   - component: {fileID: 114248185066088846}
+  - component: {fileID: 114298968757308134}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,6 +175,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawnerData: {fileID: 11400000, guid: 984b2458a7022f54094ac54f1b2b6b9d, type: 2}
   bulletSpawn: {fileID: 4026619308769900}
+--- !u!114 &114298968757308134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746749167903336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4355279ef15b54e4b9ff84519918000f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 41c8cfb48f831df4bbde3d30f2f1c5e9, type: 2}
 --- !u!114 &114898581499774490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,8 +211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 41c8cfb48f831df4bbde3d30f2f1c5e9, type: 2}
   ThrustFX: {fileID: 1685826651039512}
-  TurnLeftFX: {fileID: 0}
-  TurnRightFX: {fileID: 0}
 --- !u!212 &212251752171675136
 SpriteRenderer:
   m_ObjectHideFlags: 1
