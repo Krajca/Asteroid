@@ -11,13 +11,16 @@ namespace AsteroidGame.Asteroids
         [SerializeField]
         AsteroidSpawnerData spawnerData;
 
-        float maxCamBound;
+        float horisontalBound;
+        float verticalBound;
 
         List<Asteroid> asteroids;
 
         void Start()
         {
-            maxCamBound = Camera.main.orthographicSize * Camera.main.aspect;
+            horisontalBound = Camera.main.aspect * Camera.main.orthographicSize + spawnerData.SpawnPositionOffsetBound;
+            verticalBound = Camera.main.orthographicSize + spawnerData.SpawnPositionOffsetBound; ;
+
             asteroids = new List<Asteroid>();
         }
 
@@ -41,7 +44,32 @@ namespace AsteroidGame.Asteroids
 
                 Asteroid asteroid = obj.GetComponent<Asteroid>();
 
-                Vector2 rndPos = Random.insideUnitCircle.normalized * (maxCamBound + spawnerData.SpawnPositionOffsetBound);
+                Vector2 rndPos;
+                int side = Random.Range(0,4);
+                switch (side)
+                {
+                    //north
+                    case 0:
+                        rndPos = new Vector2(Random.Range(-horisontalBound, horisontalBound), verticalBound);
+                        break;
+                    //east
+                    case 1:
+                        rndPos = new Vector2(horisontalBound, Random.Range(-verticalBound, verticalBound));
+                        break;
+                    //south
+                    case 2:
+                        rndPos = new Vector2(Random.Range(-horisontalBound, horisontalBound), -verticalBound);
+                        break;
+                    //west
+                    case 3:
+                        rndPos = new Vector2(-horisontalBound, Random.Range(-verticalBound, verticalBound));
+                        break;
+                    //upper right corner
+                    default:
+                        rndPos = new Vector2(horisontalBound,verticalBound);
+                        break;
+                }
+
                 Vector2 rndHeading = (Random.insideUnitCircle * spawnerData.AccuracyOfAsteroids) - rndPos;
 
                 asteroid.Initialize(rndPos, spawnerData.AsteroidSpeed, rndHeading.normalized, AsteroidSize.big, type, this);
