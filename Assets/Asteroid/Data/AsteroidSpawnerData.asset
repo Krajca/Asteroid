@@ -14,6 +14,8 @@ MonoBehaviour:
   SpawnPositionOffsetBound: 2
   AccuracyOfAsteroids: 2
   AsteroidSpeed: 1
+  TimeToNextRound: 2
+  NewRoundAsteroidCount: 3
   PointsForAsteroids: 0a000000140000001e000000
   AsteroidTypes:
   - {fileID: 11400000, guid: 57612c314f3b0114cb9d769e73c43c11, type: 2}

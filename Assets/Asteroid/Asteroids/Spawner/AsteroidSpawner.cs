@@ -1,20 +1,32 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+using AsteroidGame.UI;
 
 namespace AsteroidGame.Asteroids
 {
     //TODO Consider to add pooling for asteroids -- need more time for size/type differences
     public class AsteroidSpawner : MonoBehaviour
     {
-        public AsteroidSpawnerData spawnerData;
+        [SerializeField]
+        AsteroidSpawnerData spawnerData;
 
         float maxCamBound;
+
+        List<Asteroid> asteroids;
 
         void Start()
         {
             maxCamBound = Camera.main.orthographicSize * Camera.main.aspect;
+            asteroids = new List<Asteroid>();
         }
 
-        public void SpawnBigAsteroid(int amount)
+        public void SpawnAsteroids()
+        {
+            SpawnBigAsteroid(spawnerData.NewRoundAsteroidCount);
+        }
+
+        void SpawnBigAsteroid(int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -33,6 +45,7 @@ namespace AsteroidGame.Asteroids
                 Vector2 rndHeading = (Random.insideUnitCircle * spawnerData.AccuracyOfAsteroids) - rndPos;
 
                 asteroid.Initialize(rndPos, spawnerData.AsteroidSpeed, rndHeading.normalized, AsteroidSize.big, type, this);
+                asteroids.Add(asteroid);
 
                 obj.SetActive(true);
             }
@@ -40,12 +53,20 @@ namespace AsteroidGame.Asteroids
 
         public void SpawnSmallerAsteroid(Asteroid bigAsteroid)
         {
+            asteroids.Remove(bigAsteroid);
             if (bigAsteroid.Size != AsteroidSize.small)
             {
                 InstantiateSmallerAsteroid(bigAsteroid);
                 InstantiateSmallerAsteroid(bigAsteroid);
             }
+
             ScoreManager.instance.AddScore(spawnerData.PointsForAsteroids[(int)bigAsteroid.Size]);
+
+
+            if (asteroids.Count <= 0)
+            {
+                Invoke("SpawnAsteroids", spawnerData.TimeToNextRound);
+            }
         }
 
         void InstantiateSmallerAsteroid(Asteroid bigAsteroid)
@@ -73,9 +94,18 @@ namespace AsteroidGame.Asteroids
             Vector2 rndHeading = Random.insideUnitCircle.normalized;
 
             asteroid.Initialize(rndPos, spawnerData.AsteroidSpeed, rndHeading, bigAsteroid.Size - 1, bigAsteroid.Type, this);
+            asteroids.Add(asteroid);
 
             obj.SetActive(true);
         }
 
+        public void ClearAsteroids()
+        {
+            for (int i = 0; i < asteroids.Count; i++)
+            {
+                Destroy(asteroids[i].gameObject);
+            }
+            asteroids.Clear();
+        }
     }
 }

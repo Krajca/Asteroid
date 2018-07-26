@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
+using AsteroidGame.UI;
 using AsteroidGame.Asteroids;
-using UnityEngine.SceneManagement;
+using AsteroidGame.Player;
 
 namespace AsteroidGame
 {
@@ -14,10 +16,16 @@ namespace AsteroidGame
         [SerializeField]
         AsteroidSpawner asteroidSpawner;
 
+        [SerializeField]
+        AsteroidSpawnerData spawnerData;
+
+        [SerializeField]
+        PlayerMovement playerMovement;
 
         /// <summary>
         /// Time to wait at beginning of the game
         /// </summary>
+        [SerializeField]
         float beginWaitTime = 2f;
 
         void Awake()
@@ -32,24 +40,26 @@ namespace AsteroidGame
         void Start()
         {
             ScoreManager.instance.ClearScore();
-            Invoke("StartGame", beginWaitTime);
+            Invoke("StartGame", spawnerData.TimeToNextRound);
         }
 
         public void StartGame()
         {
-            asteroidSpawner.SpawnBigAsteroid(3);
+            asteroidSpawner.SpawnAsteroids();
         }
 
         public void EndGame()
         {
+            //TODO GUI
             ScoreManager.instance.SaveIfNewHiScore();
             SceneManager.LoadScene("MenuScene");
         }
 
         public void Restart()
         {
-            ScoreManager.instance.SaveCurrentScore();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            asteroidSpawner.ClearAsteroids();
+            playerMovement.ResetToCenter();
+            Invoke("StartGame", spawnerData.TimeToNextRound);
         }
     }
 }

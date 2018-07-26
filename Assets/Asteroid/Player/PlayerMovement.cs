@@ -22,6 +22,13 @@ namespace AsteroidGame.Player
             rb = GetComponent<Rigidbody2D>();
         }
 
+        public void ResetToCenter()
+        {
+            rb.velocity = Vector2.zero;
+            rb.MovePosition(Vector2.zero);
+            rb.MoveRotation(0);
+        }
+
         public void Turn(bool right)
         {
             angle += (right ? -1 : 1) * playerData.ShipTurnSpeed;

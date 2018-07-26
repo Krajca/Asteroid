@@ -46,10 +46,13 @@ namespace AsteroidGame.Asteroids
             this.asteroidSpawner = asteroidSpawner;
         }
 
-        private void OnCollisionEnter2D()
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            asteroidSpawner.SpawnSmallerAsteroid(this);
-            Destroy(this.gameObject);
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Bullets"))
+            {
+                asteroidSpawner.SpawnSmallerAsteroid(this);
+                Destroy(this.gameObject);
+            }
         }
     }
 }

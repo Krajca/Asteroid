@@ -22,6 +22,9 @@ namespace AsteroidGame.Asteroids
 
         public float AsteroidSpeed;
 
+        public float TimeToNextRound;
+        public int NewRoundAsteroidCount;
+
         /// <summary>
         /// Points for destroying an asteroid
         /// Please check AsteroidSize.cs for details
