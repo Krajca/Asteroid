@@ -27,6 +27,7 @@ namespace AsteroidGame.Player
             rb.velocity = Vector2.zero;
             rb.MovePosition(Vector2.zero);
             rb.MoveRotation(0);
+            angle = 0;
         }
 
         public void Turn(bool right)
