@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e732a0acd32ec4d47a48d36fe9c03c97, type: 3}
+  m_Name: SoundData
+  m_EditorClassIdentifier: 
+  Shot: {fileID: 8300000, guid: 45872193c2610b64b89ac92537d6b3f4, type: 3}
+  Explosion: {fileID: 8300000, guid: 10ecb1b92840e274b99f97e2141fbff0, type: 3}
+  PlayerDeath: {fileID: 8300000, guid: 6f1df83d6b26d0343962dff3f6749770, type: 3}
+  PlayerRespawn: {fileID: 8300000, guid: a4bc51c1b51eed343b998a888cc88e7a, type: 3}
+  RandomizeShotSound: 1
+  LowPitchRange: 0.9
+  HighPitchRange: 1.1
