@@ -3,6 +3,7 @@
 
 namespace AsteroidGame.Player
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField]

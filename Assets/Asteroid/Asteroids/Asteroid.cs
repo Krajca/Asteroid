@@ -2,6 +2,7 @@
 
 namespace AsteroidGame.Asteroids
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class Asteroid : MonoBehaviour
     {
         public AsteroidSize Size
