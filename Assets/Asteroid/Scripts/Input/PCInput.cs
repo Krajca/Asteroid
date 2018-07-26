@@ -6,18 +6,15 @@ using AsteroidGame.Player;
 
 namespace AsteroidGame.Input
 {
-    //TODO add abstract Input class
-    public class PCInput : MonoBehaviour
+    public class PCInput : Input
     {
-        PlayerMovement pm;
-        PlayerShooting ps;
-
-        bool canPassInput;
+        PlayerMovement playerMovement;
+        PlayerShooting playerShooting;
 
         private void Awake()
         {
-            pm = FindObjectOfType<PlayerMovement>();
-            ps = FindObjectOfType<PlayerShooting>();
+            playerMovement = FindObjectOfType<PlayerMovement>();
+            playerShooting = FindObjectOfType<PlayerShooting>();
 
             canPassInput = true;
         }
@@ -28,27 +25,21 @@ namespace AsteroidGame.Input
             {
                 if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
                 {
-                    pm.Accelerate();
+                    playerMovement.Accelerate();
                 }
                 if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
                 {
-                    pm.Turn(false);
+                    playerMovement.Turn(false);
                 }
                 if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
                 {
-                    pm.Turn(true);
+                    playerMovement.Turn(true);
                 }
                 if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
                 {
-                    ps.Shoot();
+                    playerShooting.Shoot();
                 }
             }
         }
-
-        public void SwitchInputTo(bool i)
-        {
-            canPassInput = i;
-        }
-
     }
 }

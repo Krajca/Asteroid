@@ -24,7 +24,7 @@ namespace AsteroidGame
         PlayerMovement playerMovement;
 
         [SerializeField]
-        PCInput input;
+        Input.Input input;
 
         void Awake()
         {
@@ -33,7 +33,7 @@ namespace AsteroidGame
             else if (instance != this)
                 Destroy(gameObject);
 
-            input = GetComponent<PCInput>();
+            input = GetComponent<Input.Input>();
         }
 
 
