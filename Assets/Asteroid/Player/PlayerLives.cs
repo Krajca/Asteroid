@@ -53,6 +53,7 @@ namespace AsteroidGame.Player
         public void Spawn()
         {
             SoundPlayer.instance.PlayPlayerRespawnSound();
+            GameLoop.instance.TurnInputOn();
             body.enabled = true;
         }
     }
