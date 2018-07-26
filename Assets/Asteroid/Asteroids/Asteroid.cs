@@ -51,6 +51,7 @@ namespace AsteroidGame.Asteroids
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("Bullets"))
             {
+                GetComponent<Collider2D>().enabled = false;
                 asteroidSpawner.SpawnSmallerAsteroid(this);
                 Destroy(this.gameObject);
             }
