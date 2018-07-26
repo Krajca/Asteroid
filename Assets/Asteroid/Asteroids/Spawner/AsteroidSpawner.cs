@@ -61,6 +61,7 @@ namespace AsteroidGame.Asteroids
             }
 
             ScoreManager.instance.AddScore(spawnerData.PointsForAsteroids[(int)bigAsteroid.Size]);
+            GameGUIScript.instance.UpdateScore();
 
 
             if (asteroids.Count <= 0)

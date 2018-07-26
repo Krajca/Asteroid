@@ -15,6 +15,7 @@ namespace AsteroidGame.Player
         void Start()
         {
             currentLives = playerData.PlayerLives;
+            GameGUIScript.instance.UpdateLives(currentLives);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -25,6 +26,7 @@ namespace AsteroidGame.Player
         void Die()
         {
             --currentLives;
+            GameGUIScript.instance.UpdateLives(currentLives);
 
             if (currentLives <= 0)
             {
