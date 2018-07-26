@@ -17,5 +17,8 @@ namespace AsteroidGame.Sound
         public float LowPitchRange;
         [Tooltip("Used for randomize shoot sound")]
         public float HighPitchRange;
+
+        public AudioClip MenuMusic;
+        public AudioClip[] GameplayMusic;
     }
 }

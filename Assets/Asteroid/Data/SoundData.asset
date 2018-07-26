@@ -18,3 +18,11 @@ MonoBehaviour:
   RandomizeShotSound: 1
   LowPitchRange: 0.9
   HighPitchRange: 1.1
+  MenuMusic: {fileID: 8300000, guid: 450edea7f0a95a64ebc1f67f20864442, type: 3}
+  GameplayMusic:
+  - {fileID: 8300000, guid: 81e0888c56227c946a818e7246e83e02, type: 3}
+  - {fileID: 8300000, guid: 4dc77b26c0954f34dbf6ba466afb0320, type: 3}
+  - {fileID: 8300000, guid: a5e80148616187a4687be7b5c78d245a, type: 3}
+  - {fileID: 8300000, guid: 76de522faacd792468dd3bfb8931ea22, type: 3}
+  - {fileID: 8300000, guid: 0f9bdb2417fdbad498d2e6022ec2133b, type: 3}
+  - {fileID: 8300000, guid: 9ce5899dfb656524da8160ae749dcf43, type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace AsteroidGame.Sound
 {
@@ -14,6 +15,8 @@ namespace AsteroidGame.Sound
         AudioSource ShotsAudioSource;
         AudioSource OtherAudioSource;
 
+        AudioSource MusicAudioSource;
+
         void Awake()
         {
             if (instance == null)
@@ -23,8 +26,23 @@ namespace AsteroidGame.Sound
 
             ShotsAudioSource = gameObject.AddComponent<AudioSource>();
             OtherAudioSource = gameObject.AddComponent<AudioSource>();
+            MusicAudioSource = gameObject.AddComponent<AudioSource>();
+
+            ShotsAudioSource.volume = 0.1f;
+            MusicAudioSource.volume = 0.01f;
 
             DontDestroyOnLoad(gameObject);
+        }
+
+        private void Start()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            
+        }
+
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         public void PlayShotSound()
@@ -52,5 +70,33 @@ namespace AsteroidGame.Sound
             OtherAudioSource.clip = soundData.Explosion;
             OtherAudioSource.Play();
         }
+
+        public void PlayMenuMusic()
+        {
+            MusicAudioSource.clip = soundData.MenuMusic;
+            MusicAudioSource.Play();
+        }
+        public void PlayRandomGameplayMusic()
+        {
+            MusicAudioSource.clip = soundData.GameplayMusic[Random.Range(0, soundData.GameplayMusic.Length)];
+            MusicAudioSource.Play();
+        }
+
+
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            switch (scene.name)
+            {
+                case "MenuScene":
+                    PlayMenuMusic();
+                    break;
+                case "GameScene":
+                    PlayRandomGameplayMusic();
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
 }
