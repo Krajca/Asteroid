@@ -64,10 +64,16 @@ namespace AsteroidGame
 
         public void Restart()
         {
+            input.SwitchInputTo(false);
             asteroidSpawner.ClearAsteroids();
             playerMovement.ResetToCenter();
             playerLives.SpawnPlayer();
             Invoke("StartGame", spawnerData.TimeToNextRound);
+        }
+
+        public void TurnInputOn()
+        {
+            input.SwitchInputTo(true);
         }
     }
 }
