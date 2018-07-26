@@ -20,5 +20,11 @@ namespace AsteroidGame.Sound
 
         public AudioClip MenuMusic;
         public AudioClip[] GameplayMusic;
+
+        [Range(0, 1)]
+        public float SoundsVolume = 0.1f;
+        [Range(0, 1)]
+        public float MusicVolume = 0.05f;
+
     }
 }

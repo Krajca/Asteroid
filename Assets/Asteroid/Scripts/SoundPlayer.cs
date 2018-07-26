@@ -28,8 +28,10 @@ namespace AsteroidGame.Sound
             OtherAudioSource = gameObject.AddComponent<AudioSource>();
             MusicAudioSource = gameObject.AddComponent<AudioSource>();
 
-            ShotsAudioSource.volume = 0.1f;
-            MusicAudioSource.volume = 0.01f;
+            //TODO Add audio mixer and settings at main menu
+            ShotsAudioSource.volume = soundData.SoundsVolume;
+            OtherAudioSource.volume = soundData.SoundsVolume;
+            MusicAudioSource.volume = soundData.MusicVolume;
 
             DontDestroyOnLoad(gameObject);
         }
@@ -37,7 +39,6 @@ namespace AsteroidGame.Sound
         private void Start()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
-            
         }
 
         private void OnDestroy()
