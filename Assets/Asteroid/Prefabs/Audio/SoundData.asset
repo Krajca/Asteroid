@@ -26,3 +26,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 76de522faacd792468dd3bfb8931ea22, type: 3}
   - {fileID: 8300000, guid: 0f9bdb2417fdbad498d2e6022ec2133b, type: 3}
   - {fileID: 8300000, guid: 9ce5899dfb656524da8160ae749dcf43, type: 3}
+  SoundsVolume: 0.1
+  MusicVolume: 0.05

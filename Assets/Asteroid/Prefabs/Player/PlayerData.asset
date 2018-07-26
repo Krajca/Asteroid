@@ -14,3 +14,4 @@ MonoBehaviour:
   ShipTurnSpeed: 2
   ShipAcceleration: 1
   PlayerLives: 3
+  PlayerRespawnTime: 1
