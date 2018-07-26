@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 using AsteroidGame.UI;
+using AsteroidGame.Input;
 using AsteroidGame.Asteroids;
 using AsteroidGame.Player;
 
@@ -22,11 +23,8 @@ namespace AsteroidGame
         [SerializeField]
         PlayerMovement playerMovement;
 
-        /// <summary>
-        /// Time to wait at beginning of the game
-        /// </summary>
         [SerializeField]
-        float beginWaitTime = 2f;
+        PCInput input;
 
         void Awake()
         {
@@ -34,6 +32,8 @@ namespace AsteroidGame
                 instance = this;
             else if (instance != this)
                 Destroy(gameObject);
+
+            input = GetComponent<PCInput>();
         }
 
 
@@ -50,9 +50,10 @@ namespace AsteroidGame
 
         public void EndGame()
         {
-            //TODO GUI
-            ScoreManager.instance.SaveIfNewHiScore();
-            SceneManager.LoadScene("MenuScene");
+            asteroidSpawner.ClearAsteroids();
+            input.SwitchInputTo(false);
+            playerMovement.gameObject.SetActive(false);
+            GameGUIScript.instance.EndGameGUI();
         }
 
         public void Restart()

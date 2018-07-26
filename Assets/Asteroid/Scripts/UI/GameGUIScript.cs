@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace AsteroidGame.UI
@@ -16,7 +17,14 @@ namespace AsteroidGame.UI
         [SerializeField]
         GameObject[] lives;
 
-
+        [SerializeField]
+        GameObject endGamePanel;
+        [SerializeField]
+        Text endScore;
+        [SerializeField]
+        Text endHiScore;
+        [SerializeField]
+        GameObject announcement;
 
         void Awake()
         {
@@ -24,8 +32,6 @@ namespace AsteroidGame.UI
                 instance = this;
             else if (instance != this)
                 Destroy(gameObject);
-
-            DontDestroyOnLoad(gameObject);
         }
 
         private void Start()
@@ -49,5 +55,25 @@ namespace AsteroidGame.UI
             }
         }
 
+        public void EndGameGUI()
+        {
+            endScore.text = ScoreManager.instance.Score.ToString();
+            endHiScore.text = ScoreManager.instance.HiScore.ToString();
+            bool isNewHS = ScoreManager.instance.SaveIfNewHiScore();
+            if (isNewHS) announcement.SetActive(true);
+            endGamePanel.SetActive(true);
+        }
+
+        public void ButtonEndGame()
+        {
+            endGamePanel.SetActive(false);
+            SceneManager.LoadScene("MenuScene");
+        }
+
+        public void ButtonRestart()
+        {
+            endGamePanel.SetActive(false);
+            SceneManager.LoadScene("GameScene");
+        }
     }
 }

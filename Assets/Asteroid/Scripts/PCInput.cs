@@ -6,40 +6,49 @@ using AsteroidGame.Player;
 
 namespace AsteroidGame.Input
 {
+    //TODO add abstract Input class
     public class PCInput : MonoBehaviour
     {
         PlayerMovement pm;
         PlayerShooting ps;
 
+        bool canPassInput;
+
         private void Awake()
         {
             pm = FindObjectOfType<PlayerMovement>();
             ps = FindObjectOfType<PlayerShooting>();
-        }
 
-        void Start()
-        {
-
+            canPassInput = true;
         }
 
         void Update()
         {
-            if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
+            if (canPassInput)
             {
-                pm.Accelerate();
-            }
-            if(UnityEngine.Input.GetKey(KeyCode.LeftArrow))
-            {
-                pm.Turn(false);
-            }
-            if(UnityEngine.Input.GetKey(KeyCode.RightArrow))
-            {
-                pm.Turn(true);
-            }
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
-            {
-                ps.Shoot();
+                if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
+                {
+                    pm.Accelerate();
+                }
+                if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
+                {
+                    pm.Turn(false);
+                }
+                if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
+                {
+                    pm.Turn(true);
+                }
+                if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
+                {
+                    ps.Shoot();
+                }
             }
         }
+
+        public void SwitchInputTo(bool i)
+        {
+            canPassInput = i;
+        }
+
     }
 }
