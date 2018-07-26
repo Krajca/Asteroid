@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 using AsteroidGame.UI;
+using AsteroidGame.Sound;
 
 namespace AsteroidGame.Player
 {
@@ -10,7 +9,12 @@ namespace AsteroidGame.Player
     {
         [SerializeField]
         PlayerData playerData;
+
+        [SerializeField]
+        SpriteRenderer body;
+
         int currentLives;
+
 
         void Start()
         {
@@ -25,6 +29,9 @@ namespace AsteroidGame.Player
 
         void Die()
         {
+            SoundPlayer.instance.PlayPlayerDeathSound();
+            body.enabled = false;
+
             --currentLives;
             GameGUIScript.instance.UpdateLives(currentLives);
 
@@ -36,6 +43,17 @@ namespace AsteroidGame.Player
             {
                 GameLoop.instance.Restart();
             }
+        }
+
+        public void SpawnPlayer()
+        {
+            Invoke("Spawn", playerData.PlayerRespawnTime);
+        }
+
+        public void Spawn()
+        {
+            SoundPlayer.instance.PlayPlayerRespawnSound();
+            body.enabled = true;
         }
     }
 }

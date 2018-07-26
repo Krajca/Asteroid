@@ -11,5 +11,6 @@ namespace AsteroidGame.Player
         public float ShipAcceleration = 1f;
 
         public int PlayerLives = 3;
+        public float PlayerRespawnTime = 1f;
     }
 }

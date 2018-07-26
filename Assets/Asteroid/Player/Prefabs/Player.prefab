@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 41c8cfb48f831df4bbde3d30f2f1c5e9, type: 2}
+  body: {fileID: 212733167379467998}
 --- !u!114 &114898581499774490
 MonoBehaviour:
   m_ObjectHideFlags: 1

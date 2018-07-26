@@ -2490,8 +2490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidSpawner: {fileID: 1020542165}
   spawnerData: {fileID: 11400000, guid: 5821a74180970b9428a50af5de4f4c7a, type: 2}
-  playerMovement: {fileID: 1582169773}
-  beginWaitTime: 2
+  playerGameObject: {fileID: 1582169773}
+  input: {fileID: 1494363666}
 --- !u!114 &1494363666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2624,12 +2624,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f50aa01268e27794ba3bc1e211768d07, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &1582169773 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114945005215583662, guid: f50aa01268e27794ba3bc1e211768d07,
+--- !u!1 &1582169773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1746749167903336, guid: f50aa01268e27794ba3bc1e211768d07,
     type: 2}
   m_PrefabInternal: {fileID: 1582169772}
-  m_Script: {fileID: 11500000, guid: d5da4fbeb73e667469c52826898ec070, type: 3}
 --- !u!1 &1636756202
 GameObject:
   m_ObjectHideFlags: 0

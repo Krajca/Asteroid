@@ -7,6 +7,7 @@ using AsteroidGame.UI;
 using AsteroidGame.Input;
 using AsteroidGame.Asteroids;
 using AsteroidGame.Player;
+using AsteroidGame.Sound;
 
 namespace AsteroidGame
 {
@@ -21,10 +22,14 @@ namespace AsteroidGame
         AsteroidSpawnerData spawnerData;
 
         [SerializeField]
-        PlayerMovement playerMovement;
+        GameObject playerGameObject;
 
         [SerializeField]
         Input.Input input;
+
+
+        PlayerMovement playerMovement;
+        PlayerLives playerLives;
 
         void Awake()
         {
@@ -33,7 +38,8 @@ namespace AsteroidGame
             else if (instance != this)
                 Destroy(gameObject);
 
-            input = GetComponent<Input.Input>();
+            playerMovement = playerGameObject.GetComponentInChildren<PlayerMovement>();
+            playerLives = playerGameObject.GetComponentInChildren<PlayerLives>();
         }
 
 
@@ -60,6 +66,7 @@ namespace AsteroidGame
         {
             asteroidSpawner.ClearAsteroids();
             playerMovement.ResetToCenter();
+            playerLives.SpawnPlayer();
             Invoke("StartGame", spawnerData.TimeToNextRound);
         }
     }

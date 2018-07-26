@@ -2,6 +2,7 @@
 using UnityEngine;
 
 using AsteroidGame.UI;
+using AsteroidGame.Sound;
 
 namespace AsteroidGame.Asteroids
 {
@@ -81,6 +82,8 @@ namespace AsteroidGame.Asteroids
 
         public void SpawnSmallerAsteroid(Asteroid bigAsteroid)
         {
+            SoundPlayer.instance.PlayExplosionSound();
+
             asteroids.Remove(bigAsteroid);
             if (bigAsteroid.Size != AsteroidSize.small)
             {

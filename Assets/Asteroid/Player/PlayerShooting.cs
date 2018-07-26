@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using AsteroidGame.Sound;
+
 namespace AsteroidGame.Player
 {
     public class PlayerShooting : MonoBehaviour
@@ -27,6 +29,8 @@ namespace AsteroidGame.Player
 
         public void Shoot()
         {
+            SoundPlayer.instance.PlayShotSound();
+
             for (int i = 0; i < bullets.Count; i++)
             {
                 if (!bullets[i].activeInHierarchy)
